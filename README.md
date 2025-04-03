@@ -1,4 +1,4 @@
-## Python for Artificial Intteligence
+## Python for Artificial Intelligence
 
 This repository contains my codes for Laboratory exercises and Midterm exercises for the subject Artificial Intelligence.
 

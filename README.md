@@ -1,6 +1,6 @@
 ## Python for Artificial Intteligence
 
-This repository contains my codes from Laboratory exercises and Midterm exercises for the subject Artificial Intelligence.
+This repository contains my codes for Laboratory exercises and Midterm exercises for the subject Artificial Intelligence.
 
 1st laboratory exercises - <b>uninformed serching</b>: 
 <ul>

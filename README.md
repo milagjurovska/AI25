@@ -16,3 +16,14 @@ This repository contains my codes for Laboratory exercises and Midterm exercises
 </ul>
   
  
+3rd laboratory exercises - <b>Naive-Bayes classifier</b>: 
+<ul>
+  <li>Training a Naive Bayes classifier using a categorical dataset for a solar flare.</li>
+  <li>Training a Naive Bayes classifier using a continuous dataset for cryotherapy. </li>
+</ul>
+
+4th laboratory exercises - <b>Decision Tree and Random Forest classifier</b>: 
+<ul>
+  <li>Training a Decision Tree classifier using a categorical dataset for a solar flare.</li>
+  <li>Training a Random Forest classifier using a continuous dataset for attributes of fish.</li>
+</ul>

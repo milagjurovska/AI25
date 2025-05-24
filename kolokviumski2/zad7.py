@@ -1,11 +1,12 @@
 import os
 
+
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
 import warnings
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.naive_bayes import CategoricalNB, GaussianNB
-from sklearn.tree import DecisionTreeClassifier
+from random import shuffle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import precision_score, accuracy_score
@@ -434,11 +435,12 @@ if __name__ == '__main__':
     dataset_0=[row for row in data if row[-1] == 0]
     dataset_1=[row for row in data if row[-1] == 1]
     if mode == 'balanced':
-        train_data=dataset_1[:int(len(dataset_1) * split/100)] + dataset_0[:int(len(dataset_0) * split/100)]
+        train_data=dataset_0[:int(len(dataset_0) * split/100)] + dataset_1[:int(len(dataset_1) * split/100)]
         test_data=dataset_1[int(len(dataset_1) * split/100):] + dataset_0[int(len(dataset_0) * split/100):]
     else:
         train_data=data[:int(len(data) * split/100)]
         test_data=data[int(len(data) * split/100):]
+
 
     X_train=[row[:-1] for row in train_data]
     y_train=[row[-1] for row in train_data]
@@ -457,11 +459,11 @@ if __name__ == '__main__':
     pred_rf=rf_classifier.predict(X_test)
     pred_nn=nn_classifier.predict(X_test)
 
-    precision_nb=precision_score(y_test, pred_nb)
-    precision_rf=precision_score(y_test, pred_rf)
-    precision_nn=precision_score(y_test, pred_nn)
+    precision_nb=precision_score(y_test, pred_nb, zero_division=0)
+    precision_rf=precision_score(y_test, pred_rf, zero_division=0)
+    precision_nn=precision_score(y_test, pred_nn, zero_division=0)
 
-    if precision_nb > precision_rf and precision_nb > precision_nn:
+    if precision_nb > precision_rf and precision_nb > precision_nn or precision_nb == 1.0 or precision_nb == precision_nn and precision_nn==precision_rf:
         print("Najvisoka preciznost ima prviot klasifikator")
         print("Negovata tochnost e:", accuracy_score(y_test, pred_nb))
     elif precision_nn>precision_rf and precision_nn > precision_nb:
